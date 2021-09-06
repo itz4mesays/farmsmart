@@ -1,4 +1,4 @@
-## Farm Smart Application -> RESTFUL APIs
+## Farm Smart RESTFUL APIs
 
 [![CircleCI](https://img.shields.io/circleci/project/github/contentful/the-example-app.nodejs.svg)](https://circleci.com/gh/contentful/the-example-app.nodejs)
 
@@ -11,9 +11,10 @@ Clone the repo and install the dependencies.
 
 ```bash
 git clone https://github.com/itz4mesays/farmsmart.git
-cd the-example-app.nodejs
+cd farmsmart
 ```
 
+## Install Node Packages
 ```bash
 npm i
 ```
