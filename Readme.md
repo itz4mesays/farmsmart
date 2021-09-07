@@ -19,6 +19,11 @@ cd FarmSmart-Backend
 npm i
 ```
 
+## Install Nodemon globally
+```
+npm i -g nodemon
+```
+
 ## Steps for read-only access
 
 To start the express server, run the following
