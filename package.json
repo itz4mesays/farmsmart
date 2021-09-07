@@ -5,7 +5,16 @@
   "main": "server.js",
   "scripts": {
     "dev": "env NODE_ENV=development nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "npx sequelize-cli db:migrate --url mysql://root:@127.0.0.1/farmsmart",
+    "migrate_test": "npx sequelize-cli db:migrate --url mysql://$DB_USER:$DB_PASS@127.0.0.1/$DB_NAME",
+    "migration": "npx sequelize-cli migration:create --name modify_users_add_new_fields",
+    "model_generate": "npx sequelize-cli model:generate --name ModelName --attributes userid:integer,field2:string,field3:date",
+    "seeder": "npx sequelize-cli seed:create --name my-seed-file",
+    "seed_local": "npx sequelize-cli db:seed:all --url mysql://root:@127.0.0.1/farmsmart",
+    "seed-single": "npx sequelize-cli db:seed --seed <name of seed file>",
+    "test": "NODE=test yarn jest --silent=true --verbose --forceExit --runInBand",
+    "test_local": "NODE=test yarn jest --silent=false --verbose --forceExit --runInBand",
+    "test2": "NODE=test jest --forceExit --runInBand"
   },
   "author": "Oyedele Olufemi",
   "license": "ISC",
