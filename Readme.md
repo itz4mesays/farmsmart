@@ -10,8 +10,8 @@ The application contains list of RESTFUL APIs that allows for both web and mobil
 Clone the repo and install the dependencies.
 
 ```bash
-git clone https://github.com/itz4mesays/farmsmart.git
-cd farmsmart
+git clone https://github.com/victorhez/FarmSmart-Backend.git
+cd FarmSmart-Backend
 ```
 
 ## Install Node Packages
