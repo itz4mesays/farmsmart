@@ -16,7 +16,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-app.use(cors())
+const corsOption = {
+    origin: 'localhost:5000',
+    optionsSuccessStatus: 200
+}
+app.use(cors(corsOption))
 app.use(helmet())
 
 //Define Swagger Middleware
@@ -64,8 +68,10 @@ let PORT = process.env.ACCESS_PORT || process.env.ACCESS_TEST_PORT
 
 //Define Routes here
 const siteRoute = require('./app/routes/site.route')
+const userRoute = require('./app/routes/user.route')
 
-app.use('/v1/', siteRoute)
+app.use('/v1', siteRoute)
+app.use('/v1/user', userRoute)
 
 app.get('*', (req, res) => {
     res.status(400).json({ message: 'Sorry, We could not process your request at the moment.' });

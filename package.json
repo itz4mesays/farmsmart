@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "env NODE_ENV=development nodemon src/index.js",
     "migrate": "npx sequelize-cli db:migrate --url mysql://root:@127.0.0.1/farmsmart",
-    "migrate_test": "npx sequelize-cli db:migrate --url mysql://$DB_USER:$DB_PASS@127.0.0.1/$DB_NAME",
     "migration": "npx sequelize-cli migration:create --name modify_users_add_new_fields",
     "model_generate": "npx sequelize-cli model:generate --name ModelName --attributes userid:integer,field2:string,field3:date",
     "seeder": "npx sequelize-cli seed:create --name my-seed-file",

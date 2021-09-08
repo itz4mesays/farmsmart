@@ -1,0 +1,83 @@
+POST http://localhost:4100/v1/account/register
+content-Type: application/json
+
+{
+    "firstname": "John",
+    "lastname": "Doe",
+    "phone": "08100000000",
+    "email": "johndoe@gmail.com",
+    "user_category": "Buyer",
+    "password": "johndoe",
+    "confirm_password": "johndoe"
+}
+
+###
+POST http://localhost:4100/v1/account/login
+content-Type: application/json
+
+{
+    "username": "johndoe@gmail.com",
+    "password": "johndoe"
+}
+
+
+###
+GET http://localhost:4100/v1/user/get-user-profile/08100000000
+content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'
+
+
+###
+POST http://localhost:4100/v1/user/refresh-token
+content-Type: application/json
+Authorization: 'Bearer token-value-here'
+
+{
+    "refresh_token": "refresh-token-value-here"
+}
+
+
+###
+POST http://localhost:4100/v1/user/add-geodata
+content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'
+
+{
+    "geolocation": "Central Business District, Abuja",
+    "shape": "Circle",
+    "area": "Area One",
+    "crop_name": "Tomatoes",
+    "variety": "Specie Lacuna",
+    "sowing_date": "2021-06-10",
+    "soil_type": "Loamy",
+    "village_name": "My Village",
+    "district": "My District",
+    "state": "Abuja",
+    "country": "Nigeria"
+}   
+
+###
+GET http://localhost:4100/v1/user/list-geodata?page=0&limit=3
+content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'
+
+
+###
+POST http://localhost:4100/v1/user/add-preferences
+content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'
+
+{
+    "village_name": "My Village Two",
+    "district": "My District Two",
+    "state": "Abuja",
+    "country": "Nigeria",
+    "closest_market": "Maitama Market",
+    "crop_name": "Galic"
+}
+
+
+###
+GET http://localhost:4100/v1/user/list-preferences?page=3&limit=3
+content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'
