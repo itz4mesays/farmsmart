@@ -16,7 +16,8 @@ module.exports = {
                 pool: {
                     max: 5,
                     min: 0,
-                    idle: 20000
+                    acquire: 3000,
+                    idle: 10000
                 }
 
             }
@@ -34,7 +35,8 @@ module.exports = {
                 pool: {
                     max: 5,
                     min: 0,
-                    idle: 20000
+                    acquire: 3000,
+                    idle: 10000
                 }
 
                 // logging: false,
@@ -53,7 +55,8 @@ module.exports = {
                 pool: {
                     max: 5,
                     min: 0,
-                    idle: 20000
+                    acquire: 3000,
+                    idle: 10000
                 }
 
                 // logging: false,
@@ -73,7 +76,8 @@ module.exports = {
                 pool: {
                     max: 5,
                     min: 0,
-                    idle: 20000
+                    acquire: 3000,
+                    idle: 10000
                 }
 
             }
