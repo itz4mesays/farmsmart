@@ -23,16 +23,24 @@ npm i
 ```
 npm i -g nodemon
 ```
-Running some Sequelize Commands
 
-## Create a model using sequelize
-```bash
-npx sequelize-cli model:generate --name ModelName --attributes field1:string,field2:string,field3:string,field4:string
+## Setup MySQL Database locally
+
+```
+- Create a database with name 'farmsmart'
+- Inside the .env file, set your database credentials. Leave DB_Password blank if there is no password
 ```
 
 ## Run Migration Files
 ```bash
 npm run migrate
+```
+
+Running some Sequelize Commands
+
+## Create a model using sequelize
+```bash
+npx sequelize-cli model:generate --name ModelName --attributes field1:string,field2:string,field3:string,field4:string
 ```
 
 ## Steps for read-only access
