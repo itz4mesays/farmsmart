@@ -27,12 +27,12 @@ Running some Sequelize Commands
 
 ## Create a model using sequelize
 ```bash
-run npx sequelize-cli model:generate --name ModelName --attributes field1:string,field2:string,field3:string,field4:string
+npx sequelize-cli model:generate --name ModelName --attributes field1:string,field2:string,field3:string,field4:string
 ```
 
 ## Run Migration Files
 ```bash
-run npm run migrate
+npm run migrate
 ```
 
 ## Steps for read-only access
