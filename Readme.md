@@ -51,7 +51,7 @@ To start the express server, run the following
 npm run dev
 ```
 
-Open [http://localhost:4100](http://localhost:4100) and take a look around.
+Open [http://localhost:4100/v1](http://localhost:4100/v1) and take a look around.
 
 ## SwaggerIO Documentation
 Open http://localhost:4100/v1/api-docs/
