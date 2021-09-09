@@ -78,6 +78,6 @@ Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQi
 
 
 ###
-GET http://localhost:4100/v1/user/list-preferences?page=3&limit=3
+GET http://localhost:4100/v1/user/list-preferences?page=1&limit=3
 content-Type: application/json
 Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MzExMjY3NjAsImV4cCI6MTYzMTIxMzE2MH0.XlMsuQFtSdNO16lolM_odusCOYqSvf2db601wNif9RQ'

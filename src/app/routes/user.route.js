@@ -3,6 +3,7 @@ require('dotenv').config()
 const router = require('express').Router()
 const user = require('../controllers/user.controller')
 const geofarms = require('../controllers/geofarms.controller')
+const preferences = require('../controllers/preferences.controller')
 const { verifyToken, decodedToken } = require('../../helpers/utils')
 const { geoFarmValidation, preferenceValidation, validate} = require('../../helpers/validator')
 
@@ -239,7 +240,7 @@ router.get('/list-geodata', verifyToken, decodedToken, geofarms.listGeoData)
  *              500:
  *                  description: Unable to process request
  */
-router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(), validate, geofarms.savePreferences)
+router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(), validate, preferences.savePreferences)
 
 /**
  * @swagger
@@ -269,6 +270,6 @@ router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(
  *              500:
  *                  description: Unable to process request or an error occured
  */
- router.get('/list-preferences', verifyToken, decodedToken, geofarms.listPreferences)
- 
+ router.get('/list-preferences', verifyToken, decodedToken, preferences.listPreferences)
+
 module.exports = router
