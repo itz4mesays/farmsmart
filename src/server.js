@@ -12,15 +12,15 @@ const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const cors = require('cors')
 
-app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-const corsOption = {
-    origin: 'localhost:5000',
-    optionsSuccessStatus: 200
-}
-app.use(cors(corsOption))
+// const corsOption = {
+//     origin: 'localhost:5000',
+//     optionsSuccessStatus: 200
+// }
+app.use(cors())
 app.use(helmet())
 
 //Define Swagger Middleware
