@@ -50,6 +50,7 @@ const options = {
                 bearerAuth: [],
             },
         ],
+        schemes: ['http', 'https'],
         servers: [
             {
                 url: 'http://localhost:4100',
