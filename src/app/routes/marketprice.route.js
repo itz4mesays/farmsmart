@@ -41,7 +41,7 @@ const marketprice = require('../controllers/marketprice.controller')
  *                      description: State
  */
 
-router.get('/markerprice/import', marketprice.import)
+router.get('/marketprice/import', marketprice.import)
 
 /**
  * @swagger
