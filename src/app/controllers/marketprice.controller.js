@@ -56,24 +56,15 @@ module.exports = {
     },
     fetchAll: async (req, res) => {
         
-        if(req.query.page == null || req.query.limit == null) return res.json({statusCode: 402, error: true, data: { message: 'Missing page or size parameter'} })
-
         try{
-            const { page, size } = req.query;
-            const { limit, offset } = getPagination(page, size);
-          
             MarketPrice.findAndCountAll({
                 attributes: ['id', 'market_name', 'district_name', 'commodity', 'variety', 'datetimes', 'price', 'state'],
                 order: [
                   ['id', 'DESC']
-                ],
-                limit: limit, 
-                offset: offset 
+                ]
               })
-              .then(data => {
-                const response = getPagingData(data, page, limit);
-                
-                res.json({statusCode: 200, error: false, response})
+              .then(data => {             
+                res.json({statusCode: 200, error: false, data: data })
               });  
           }catch(err) {
             res.json({

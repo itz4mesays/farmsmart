@@ -27,7 +27,7 @@ module.exports = {
             country: req.body.country,
         })
         .then(result => {
-            res.json({statusCode: 201, error: false,  data: {message: 'Customer GeoFarms have been saved successfully'}})
+            res.json({statusCode: 201, error: false,  data: {message: 'Customer GeoFarms has been saved successfully'}})
         })
         .catch(err => {
             res.json({
@@ -40,25 +40,17 @@ module.exports = {
     listGeoData: async (req, res) => {
         let id = await res.locals.id
 
-        if(req.query.page == null || req.query.limit == null) return res.json({statusCode: 402, error: true, data: { message: 'Missing page or size parameter'} })
-
         try{
-            const { page, size } = req.query;
-            const { limit, offset } = getPagination(page, size);
-          
+
             GeoFarms.findAndCountAll({
                 attributes: ['id', 'geolocation', 'shape', 'area', 'crop_name', 'variety', 'sowing_date', 'soil_type', 'village_name', 'district', 'state', 'country'],
                 where: {user_id: id}, 
                 order: [
                   ['id', 'DESC']
-                ],
-                limit: limit, 
-                offset: offset 
+                ]
               })
-              .then(data => {
-                const response = getPagingData(data, page, limit);
-                
-                res.json({statusCode: 200, error: false, response})
+              .then(data => {                
+                res.json({statusCode: 200, error: false, data: data })
               });  
           }catch(err) {
             res.json({

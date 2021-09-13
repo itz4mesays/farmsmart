@@ -172,21 +172,11 @@ router.post('/add-geodata', verifyToken, decodedToken, geoFarmValidation(), vali
  *                  type: string
  *                  required: true
  *                  description: Access token
- *              -   in: query
- *                  name: page
- *                  type: integer
- *                  required: true
- *                  description: Page Number
- *              -   in: query
- *                  name: limit
- *                  type: integer
- *                  required: true
- *                  description: Limit (Size of the returned data)
  *          responses:
  *              200:
- *                  description: Show paginated result and its information
+ *                  description: Show result and its information
  *              500:
- *                  description: Unable to process request or an error occured
+ *                  description: Unable to process request or an error occurred
  */
 router.get('/list-geodata', verifyToken, decodedToken, geofarms.listGeoData)
 
@@ -247,21 +237,11 @@ router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(
  *                  type: string
  *                  required: true
  *                  description: Access token
- *              -   in: query
- *                  name: page
- *                  type: integer
- *                  required: true
- *                  description: Page Number
- *              -   in: query
- *                  name: limit
- *                  type: integer
- *                  required: true
- *                  description: Limit (Size of the returned data)
  *          responses:
  *              200:
- *                  description: Show paginated result and its information
+ *                  description: Show result and its information
  *              500:
- *                  description: Unable to process request or an error occured
+ *                  description: Unable to process request or an error occurred
  */
  router.get('/list-preferences', verifyToken, decodedToken, preferences.listPreferences)
 

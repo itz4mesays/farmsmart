@@ -21,6 +21,10 @@ module.exports = {
 
         try {
 
+            /**
+             * Wrap every insert within a transaction
+             * If one breaks, then the whole process is rollback
+             */
             const result = db.rest.transaction(async (t) => {
                 
                 const user = await User.create({
@@ -37,14 +41,27 @@ module.exports = {
                     phone: req.body.phone,
                 }, { transaction: t });
 
+                const token = jwt.sign({ user: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '365d' })
+                const refreshToken = jwt.sign({ user: user.id }, process.env.ACCESS_REFRESH_TOKEN)
+
+
+                //Insert into AccessToken table
+                await AccessToken.create({
+                    user_id: user.id,
+                    access_token: token,
+                    refresh_token: refreshToken
+                }, { transaction: t });
+
+
+                return res.json({statusCode: 201, error: false,  data: {
+                    message: 'User has been registered successfully',
+                    accessToken: token, 
+                    refreshToken: refreshToken
+                }})
             });
-
-            if(result) return res.json({statusCode: 201, error: false,  data: {message: 'User has been registered successfully'}})
-
-            res.json({statusCode: 401, error: true,  data: {message: 'Unable to register customer at the moment. Please ensure all fields are properly filled.'}})
-
         } catch (error) {
-            res.json({statusCode: 400, error: true, data: {message: error}})
+            res.json({statusCode: 401, error: true,  data: {message: error.message || 'Unable to register customer at the moment. Please ensure all fields are properly filled.'}})
+            // res.json({statusCode: 400, error: true, data: {message: error.message }})
 
         }
     },

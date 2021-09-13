@@ -47,24 +47,13 @@ router.get('/marketprice/import', marketprice.import)
  * @swagger
  *  /v1/marketprices:
  *      get:
- *          summary: Fetch the paginated result of all market data
+ *          summary: Fetch the result of all market data
  *          tags: [MarketPrice]
- *          parameters:
- *              -   in: query
- *                  name: page
- *                  type: integer
- *                  required: true
- *                  description: Page Number
- *              -   in: query
- *                  name: limit
- *                  type: integer
- *                  required: true
- *                  description: Limit (Size of the returned data)
  *          responses:
  *              200:
- *                  description: Show paginated result and its information
+ *                  description: Show result and its information
  *              500:
- *                  description: Unable to process request or an error occured
+ *                  description: Unable to process request or an error occurred
  */
 router.get('/marketprices', marketprice.fetchAll)
 
