@@ -11,8 +11,9 @@ const bodyParser = require('body-parser')
 const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const cors = require('cors')
+const { importMarketData } = require('./helpers/cron')
 
-// app.use(bodyParser.urlencoded({ extended: false }))
+// importMarketData() //run the cron script
 
 app.use(bodyParser.json())
 
@@ -70,9 +71,11 @@ let PORT = process.env.ACCESS_PORT || process.env.ACCESS_TEST_PORT
 //Define Routes here
 const siteRoute = require('./app/routes/site.route')
 const userRoute = require('./app/routes/user.route')
+const marketpriceRoute = require('./app/routes/marketprice.route')
 
 app.use('/v1', siteRoute)
 app.use('/v1/user', userRoute)
+app.use('/v1', marketpriceRoute)
 
 app.get('*', (req, res) => {
     res.status(400).json({ message: 'Sorry, We could not process your request at the moment.' });

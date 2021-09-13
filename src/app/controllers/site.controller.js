@@ -7,6 +7,8 @@ const AccessToken = db.rest.models.AccessToken
 const bcrypt = require('bcrypt')
 const { QueryTypes } = require('sequelize')
 const jwt = require('jsonwebtoken')
+var fs = require('fs');
+var request = require('request')
 
 module.exports = {
     home: (req, res) => {
@@ -120,5 +122,5 @@ module.exports = {
             res.json({ statusCode: 500, error: true, data: {message: err} });
         })
         
-    }
+    },
 }

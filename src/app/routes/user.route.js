@@ -20,7 +20,6 @@ const { geoFarmValidation, preferenceValidation, validate} = require('../../help
  *                  -   phone
  *                  -   email
  *                  -   user_category
- *                  -   created_at
  *              properties:
  *                  firstname:
  *                      type: string
@@ -37,12 +36,6 @@ const { geoFarmValidation, preferenceValidation, validate} = require('../../help
  *                  user_category:
  *                      type: string
  *                      description: e.g Buyer or Farmer
- *                  createdAt:
- *                      type: date
- *                      description: date account was created
- *                  updatedAt:
- *                      type: date
- *                      description: date account was last updated
  */
 
 /**
@@ -183,12 +176,12 @@ router.post('/add-geodata', verifyToken, decodedToken, geoFarmValidation(), vali
  *                  name: page
  *                  type: integer
  *                  required: true
- *                  description: Page Value
+ *                  description: Page Number
  *              -   in: query
  *                  name: limit
  *                  type: integer
  *                  required: true
- *                  description: Limit value
+ *                  description: Limit (Size of the returned data)
  *          responses:
  *              200:
  *                  description: Show paginated result and its information
@@ -258,12 +251,12 @@ router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(
  *                  name: page
  *                  type: integer
  *                  required: true
- *                  description: Page Value
+ *                  description: Page Number
  *              -   in: query
  *                  name: limit
  *                  type: integer
  *                  required: true
- *                  description: Limit value
+ *                  description: Limit (Size of the returned data)
  *          responses:
  *              200:
  *                  description: Show paginated result and its information

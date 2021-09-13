@@ -4,6 +4,7 @@ const router = require('express').Router()
 const site = require('../controllers/site.controller')
 const { signupValidation, loginValidation, validate} = require('../../helpers/validator')
 
+
 /**
  *  @swagger
  *  components:
@@ -106,6 +107,5 @@ router.post('/account/register', signupValidation(), validate, site.register)
  *                   
  */
 router.post('/account/login', loginValidation(), validate, site.login)
-
 
 module.exports = router
