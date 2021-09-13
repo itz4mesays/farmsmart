@@ -57,7 +57,7 @@ Open [http://localhost:4100/v1](http://localhost:4100/v1) and take a look around
 Open http://localhost:4100/v1/api-docs/
 
 ## Postman Collection Documentation
-Open [https://documenter.getpostman.com/view/7643909/U16nKivk](Click here to View) and take a look around.
+Open [https://documenter.getpostman.com/view/7643909/U16nKivk](https://documenter.getpostman.com/view/7643909/U16nKivk) and take a look around.
 
 
 ## Sample request of API calls
