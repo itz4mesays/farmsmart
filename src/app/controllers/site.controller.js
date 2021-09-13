@@ -73,7 +73,7 @@ module.exports = {
                      * The expiry day can be modified
                      */
 
-                     const token = jwt.sign({ user: result.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' })
+                     const token = jwt.sign({ user: result.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '365d' })
                      const refreshToken = jwt.sign({ user: result.id }, process.env.ACCESS_REFRESH_TOKEN)
  
                      AccessToken.findOne({ where: { user_id: result.id } })
