@@ -33,15 +33,25 @@ module.exports = {
         
                 //Save MarketData
                 transformed.forEach((value, index, self) => {
-                    MarketPrice.create({
-                        market_name : value.Market_Name,
-                        district_name : value.District_Name,
-                        state : value.State,
-                        commodity : value.Commodity,
-                        variety : value.Variety,
-                        price : value.Price,
-                        datetimes : value.datetimes
-                    })
+                    if(value.District_Name != '' 
+                            || value.District_Name != '' 
+                            || value.State != '' 
+                            || value.Price 
+                            || value.Commodity != '' 
+                            || value.Variety != '' 
+                            || value.datetimes
+                    ){
+                        MarketPrice.create({
+                            market_name : value.Market_Name,
+                            district_name : value.District_Name,
+                            state : value.State,
+                            commodity : value.Commodity,
+                            variety : value.Variety,
+                            price : value.Price,
+                            datetimes : value.datetimes
+                        })
+                    }
+                    
                 })
                 
                 //Delete the file after import is complete
