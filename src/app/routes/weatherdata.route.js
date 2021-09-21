@@ -5,7 +5,6 @@ const weatherdata = require('../controllers/weatherdata.controller')
 
 
 router.get('/weather-data/import', weatherdata.import)
-
 router.get('/weather-data', weatherdata.fetchAll)
 
 

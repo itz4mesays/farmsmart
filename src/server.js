@@ -70,12 +70,10 @@ let PORT = process.env.ACCESS_PORT || process.env.ACCESS_TEST_PORT
 
 //Define Routes here
 const siteRoute = require('./app/routes/site.route')
-const userRoute = require('./app/routes/user.route')
 const marketpriceRoute = require('./app/routes/marketprice.route')
 const weatherdataRoute = require('./app/routes/weatherdata.route')
 
 app.use('/v1', siteRoute)
-app.use('/v1/user', userRoute)
 app.use('/v1', marketpriceRoute)
 app.use('/v1', weatherdataRoute)
 
