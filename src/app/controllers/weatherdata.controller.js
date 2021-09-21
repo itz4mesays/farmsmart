@@ -21,7 +21,6 @@ module.exports = {
                     return res.json({statusCode: 404, error: true, data: err})
                 }
         
-        
                 //Save MarketData
                 data.forEach((value, index, self) => {
                     WeatherData.create({

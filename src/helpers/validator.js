@@ -97,6 +97,24 @@ const preferenceValidation = () => {
             .not().isEmpty().trim().withMessage('Crop Name field is required')
     ]
 }
+
+const newsValidation = () => {
+    return [
+        body('content_summary')
+            .not().isEmpty().trim().withMessage('Content Summary field is required'),
+        body('image_id')
+            .not().isEmpty().trim().withMessage('Image Id field is required'),
+        body('url')
+            .not().isEmpty().trim().withMessage('URL field is required'),
+        body('likes')
+            .not().isEmpty().trim().withMessage('Likes field is required'),
+        body('views')
+            .not().isEmpty().trim().withMessage('Views field is required'),
+        body('language')
+            .not().isEmpty().trim().withMessage('Language field is required')
+    ]
+}
+
 const validate = (req, res, next) => {
     const errors = validationResult(req)
     if (errors.isEmpty()) {
@@ -118,5 +136,6 @@ module.exports = {
     loginValidation,
     geoFarmValidation,
     preferenceValidation,
+    newsValidation,
     validate
 }

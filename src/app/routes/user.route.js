@@ -4,8 +4,9 @@ const router = require('express').Router()
 const user = require('../controllers/user.controller')
 const geofarms = require('../controllers/geofarms.controller')
 const preferences = require('../controllers/preferences.controller')
+const news = require('../controllers/news.controller')
 const { verifyToken, decodedToken } = require('../../helpers/utils')
-const { geoFarmValidation, preferenceValidation, validate} = require('../../helpers/validator')
+const { geoFarmValidation, preferenceValidation, newsValidation, validate} = require('../../helpers/validator')
 
 
 /**
@@ -244,5 +245,70 @@ router.post('/add-preferences', verifyToken, decodedToken, preferenceValidation(
  *                  description: Unable to process request or an error occurred
  */
  router.get('/list-preferences', verifyToken, decodedToken, preferences.listPreferences)
+
+ /**
+ * @swagger
+ *  /v1/user/create-news:
+ *      post:
+ *          summary: Capture News Data for a customer
+ *          tags: [User]
+ *          parameters:
+ *              -   in: header
+ *                  name: Bearer
+ *                  type: string
+ *                  required: true
+ *                  description: Access token
+ *          requestBody:
+ *              required: true
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              content_summary:
+ *                                  type: string
+ *                                  description: Content Summary
+ *                              image_id:
+ *                                  type: string
+ *                                  description: Image Id
+ *                              url:
+ *                                  type: string
+ *                                  description: URL
+ *                              likes:
+ *                                  type: integer
+ *                                  description: Likes
+ *                              views:
+ *                                  type: integer
+ *                                  description: Views
+ *                              language:
+ *                                  type: string
+ *                                  description: Language
+ *          responses:
+ *              201:
+ *                  description: Data has been saved
+ *              500:
+ *                  description: Unable to process request
+ */
+ router.post('/create-news', verifyToken, decodedToken, newsValidation(), validate, news.create)
+
+ /**
+ * @swagger
+ *  /v1/user/list-news:
+ *      get:
+ *          summary: Fetch the list of news data for a single customer
+ *          tags: [User]
+ *          parameters:
+ *              -   in: header
+ *                  name: Bearer
+ *                  type: string
+ *                  required: true
+ *                  description: Access token
+ *          responses:
+ *              200:
+ *                  description: Show result and its information
+ *              500:
+ *                  description: Unable to process request or an error occurred
+ */
+ router.get('/list-news', verifyToken, decodedToken, news.listNews)
 
 module.exports = router
